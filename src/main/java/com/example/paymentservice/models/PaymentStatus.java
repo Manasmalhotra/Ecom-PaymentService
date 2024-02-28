@@ -6,7 +6,7 @@ public enum PaymentStatus {
     CAPTURED("captured"),
     REFUNDED("refunded"),
     FAILED("failed");
-    String value;
+    final String value;
     PaymentStatus(String value){
         this.value=value;
     }

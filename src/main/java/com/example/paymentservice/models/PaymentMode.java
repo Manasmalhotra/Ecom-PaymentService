@@ -7,7 +7,7 @@ public enum PaymentMode {
     EMI("emi"),
     UPI("upi");
 
-    String value;
+    final String value;
 
     PaymentMode(String value){
         this.value=value;

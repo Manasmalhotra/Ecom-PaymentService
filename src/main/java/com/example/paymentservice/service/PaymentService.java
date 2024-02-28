@@ -1,10 +1,15 @@
 package com.example.paymentservice.service;
 
-import com.example.paymentservice.models.PaymentEntity;
+import com.example.paymentservice.models.PaymentMode;
+import com.example.paymentservice.models.PaymentStatus;
 import com.razorpay.RazorpayException;
-import org.springframework.stereotype.Service;
+import com.stripe.exception.StripeException;
 
-@Service
+
 public interface PaymentService {
-    public PaymentEntity capturePayment(String id) throws RazorpayException;
+    String initiatePayment(long orderId,long userId,long amount) throws RazorpayException, StripeException;
+
+    void updatePayment(long orderId, String chargeId,PaymentStatus paymentStatus, PaymentMode paymentMode);
+
+    void reconcilePayments() throws StripeException, RazorpayException;
 }
