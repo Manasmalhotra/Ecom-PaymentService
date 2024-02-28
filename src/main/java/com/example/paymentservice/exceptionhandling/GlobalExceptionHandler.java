@@ -1,6 +1,5 @@
 package com.example.paymentservice.exceptionhandling;
 
-import com.example.paymentservice.exceptionhandling.ErrorDetails;
 import com.razorpay.RazorpayException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +14,6 @@ public class GlobalExceptionHandler{
     @ExceptionHandler(RazorpayException.class)
     public ResponseEntity<ErrorDetails> ResourceNotFoundExceptionHandler(RazorpayException e, WebRequest w){
         ErrorDetails error=new ErrorDetails(new Date(),e.getMessage(),w.getDescription(false));
-        return new ResponseEntity(error, HttpStatus.BAD_REQUEST);
+       return new ResponseEntity(error, HttpStatus.BAD_REQUEST);
     }
 }
